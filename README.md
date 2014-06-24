@@ -13,7 +13,7 @@ To add the sbt-satisfy plugin to your project,
 * Add the following lines to your project/plugins.sbt file 
 
 ```
-addSbtPlugin("com.tagged.satisfaction" % "sbt-satisfy" % "0.1") 
+addSbtPlugin("com.tagged.satisfaction" %% "sbt-satisfy" % "0.1") 
 ```
    
 * Import the sbt-satisfy keys in your build.sbt
