@@ -18,6 +18,8 @@ libraryDependencies ++= Seq(
 
 publishMavenStyle := true
 
+isSnapshot := true
+
 ///publishTo := Some("tagged-artifactory-release" at "http://artifactory.tagged.com:8081/artifactory/libs-release-local")
 ///publishTo := Some(  Resolver.url("tagged-artifactory-release") artifacts "http://artifactory.tagged.com:8081/artifactory/libs-release-local/[orgPath]/[module]_[scalaVersion]_[sbtVersion]/[revision]/[module]_[scalaVersion]_[sbtVersion]_[revision].[ext]"  )
 publishTo := Some(  Resolver.url("tagged-artifactory-release") artifacts "http://artifactory.tagged.com:8081/artifactory/libs-release-local/[orgPath]/[module]/[revision]/[module]_[revision].[ext]"  )
