@@ -1,0 +1,16 @@
+language: scala
+
+scala:
+   - 2.10.3
+
+jdk:
+  - oraclejdk7
+  - openjdk7
+
+script:
+  - sbt clean package
+
+notifications:
+  email:
+    - jerome_banks@yahoo.com
+

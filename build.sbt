@@ -3,7 +3,7 @@ sbtPlugin := true
 
 name := "sbt-satisfy"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.10.3"
 
 organization := "com.tagged.satisfaction"
 
