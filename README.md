@@ -13,7 +13,7 @@ To add the sbt-satisfy plugin to your project,
 * Add the following lines to your project/plugins.sbt file 
 
 ```
-addSbtPlugin("com.tagged.satisfaction" %% "sbt-satisfy" % "0.1") 
+addSbtPlugin("com.tagged.satisfaction" %% "sbt-satisfy" % "0.15") 
 ```
    
 * Import the sbt-satisfy keys in your build.sbt
@@ -30,6 +30,24 @@ import SatisfyKeys._
 trackName := "MyAwesomeTrack"
 ```
 
+* Set a version number ( as you would normally do) to be the version number of your project, (in the form Major.Minor.Patch )
+
+```
+version := "0.1.0"
+```
+
+* For uploading to the trackpath, set hdfsURI to the URL of your HDFS name server.
+
+```
+hdfsURI := new java.net.URI("hdfs://my-hdfs-namenode:8020")
+```
+
+*  (Optional) - If you are a using a non-default track path, (instead of /user/satisfaction/track), you can set it with basePath
+
+```
+basePath := "/user/my-name/satisfaction/track"
+```
+
 *  When you are ready to upload to the Satisfaction Scheduler,
   run the `upload` command from the sbt prompt.
 
@@ -44,7 +62,7 @@ sbt
 ```
 > hadoop dfs -ls /user/satisfaction/track/MyAwesomeTrack
 Found 1 items
-drwxr-x--x   - jbanks hadoop          0 2014-06-10 15:20 /user/satisfaction/track/MyAwesomeTrack/version_0.1
+drwxr-x--x   - jbanks hadoop          0 2014-06-10 15:20 /user/satisfaction/track/MyAwesomeTrack/version_0.1.0
 ```
 
 *  Define a Track using the Satisfaction Scala DSL under src/main/scala/ .  
@@ -57,4 +75,12 @@ drwxr-x--x   - jbanks hadoop          0 2014-06-10 15:20 /user/satisfaction/trac
 
 *   Add a property 'satisfaction.track.class' which is the class name of the Scala DSL Track definition
 
+*  Additional commands
 
+** uploadResource -  Only uploads file resources 
+
+** uploadJars - Only uploads jar dependencies
+
+** cleanUpload - Removes all files for the track on HDFS
+
+** uploadProperties - Only uploads the conf/satisfaction.properties file
