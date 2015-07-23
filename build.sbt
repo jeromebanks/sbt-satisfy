@@ -7,12 +7,7 @@ scalaVersion := "2.10.2"
 
 organization := "com.tagged.satisfaction"
 
-version := "0.3"
-
-projectID <<= projectID { id =>
-    id extra("sbtVersion" -> "0.13", "scalaVersion" -> "2.10")
-}
-
+version := "0.15"
 
 val hadoopVersion = "2.3.0"
 
