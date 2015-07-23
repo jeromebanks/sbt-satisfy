@@ -20,7 +20,15 @@ publishMavenStyle := true
 
 isSnapshot := true
 
-publishTo := Some("tagged-artifactory-release" at "http://artifactory.tagged.com:8081/artifactory/sbt-plugins-release-local")
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+
+publishArtifact in Test := false
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
